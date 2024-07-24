@@ -1,0 +1,42 @@
+<div>
+    <h5>Filters</h5>
+    <br>
+    <div class="form-floating mb-3">
+        <input type="text" [formControl]="searchControl" class="form-control card-text" id="floatingInput" placeholder=" ">
+        <label for="floatingInput" class="card-text">Cocktail Name</label>
+    </div>
+    <br>
+</div>
+<div class="row row-cols-1 row-cols-md-2 g-4" >
+    <ng-container *ngFor="let cocktail of displayCocktailList">
+        <div class="col">
+            <div class="card mb-3" style="max-width: 540px;display: flex; flex-direction: row;">
+                <div class="col-md-4">
+                    <img src="{{cocktail.imageUrl}}" class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <a style="color: black;" [routerLink]="[cocktail.id]">
+                            <h5 class="card-title">{{cocktail.name}}</h5>
+                        </a>
+                       
+                        <span class="icon-star" [attr.id]="'star-' + cocktail.id"
+                            [class.active]="isFavorite(cocktail.id)" (click)="toggleFavorite(cocktail.id)"
+                            style="float: right; margin-top: -2rem;cursor: pointer"></span>
+                            
+                            <span class="badge rounded-pill " [ngClass]="{'bg-primary' : cocktail.isAlcoholic === true,
+                            'bg-success': cocktail.isAlcoholic === false}">
+                                {{cocktail.isAlcoholic? "Alcoholic" : "Non alcoholic"}}</span>
+                            <br>
+                        <span class="card-text" *ngFor="let ingredient of cocktail.ingredients;let isLast=last">
+                            <span *ngIf="!isLast">{{ingredient}} | </span> 
+                            <span *ngIf="isLast"> {{ingredient}}</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div><div class="row row-cols-1 row-cols-md-2 g-4" *ngIf="displayCocktailList.length === 0">
+    <span class="card-text">No records found</span>
+</div>
