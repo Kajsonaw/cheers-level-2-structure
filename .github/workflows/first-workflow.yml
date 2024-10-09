@@ -15,8 +15,10 @@ jobs:
         - name: test application
           run: |
               npm install @angular-eslint/schematics@17.5.3
+              ng add @angular-eslint/schematics
               npm run ng lint
   build:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
