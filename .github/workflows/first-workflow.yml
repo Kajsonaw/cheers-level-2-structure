@@ -11,7 +11,7 @@ jobs:
           with: 
               node-version: 20
         - name: install dependencies
-          run: npm ci
+          run: echo "${{github}}"
         - name: test application
           run: |
               npm install @angular-eslint/schematics@17.5.3
