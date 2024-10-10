@@ -18,7 +18,7 @@ jobs:
               npm run ng add @angular-eslint/schematics
               npm run ng lint
   build:
-    needs: test
+    needs: lint
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
