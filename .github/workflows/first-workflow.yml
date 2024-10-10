@@ -1,7 +1,7 @@
 name: test-workflow
 on: push
 jobs:
-  test:
+  lint:
       runs-on: ubuntu-latest
       steps:
         - name: checkout repo
