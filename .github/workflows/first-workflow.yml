@@ -1,7 +1,10 @@
 name: test-workflow
 on:
   pull_request:
-    types: opened
+    types: 
+      - opened
+      -  closed
+  push:
 jobs:
   lint:
       runs-on: ubuntu-latest
