@@ -9,6 +9,8 @@ on:
       - main
       - 'dev-*'
       - 'feature/**'
+    branches-ignore:
+      -'gh'
 jobs:
   lint:
       runs-on: ubuntu-latest
