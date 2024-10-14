@@ -10,7 +10,7 @@ on:
       - 'dev-*'
       - 'feature/**'
     branches-ignore:
-      -'gh'
+      -'gh-*'
 jobs:
   lint:
       runs-on: ubuntu-latest
