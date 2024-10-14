@@ -28,5 +28,11 @@ jobs:
         with:
           name: my-artifact
           path: dist
+      - name: output artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: my-artifact
+      - name: output list
+        run: run ls
         
         
