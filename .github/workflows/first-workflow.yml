@@ -9,8 +9,6 @@ on:
       - main
       - 'dev-*'
       - 'feature/**'
-    branches-ignore:
-      -'gh'
 jobs:
   build:
     runs-on: ubuntu-latest
