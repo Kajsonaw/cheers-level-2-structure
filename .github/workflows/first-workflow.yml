@@ -33,6 +33,6 @@ jobs:
         with:
           name: my-artifact
       - name: output list
-        run: Run ls
+        run: ls
         
         
