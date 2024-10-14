@@ -5,6 +5,10 @@ on:
       - opened
       - closed
   push:
+    branches:
+      - main
+      - 'dev-*'
+      - 'feature/**'
 jobs:
   lint:
       runs-on: ubuntu-latest
