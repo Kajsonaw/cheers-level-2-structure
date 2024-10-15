@@ -24,7 +24,7 @@ jobs:
       - name: install dependencies
         run: |
             npm ci
-            echo ${{github.ref}}
+            echo $GITHUB_REF
       - name: build project
         run: npm run ng build
       - name : publish output data
