@@ -12,7 +12,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs: {test : 10}
+    outputs: 
+      test: ${{steps.publish.outputs.script-file}}
     steps:
       - name: checkout repo
         uses : actions/checkout@v4
@@ -24,6 +25,9 @@ jobs:
         run: npm install
       - name: build project
         run: npm run ng build
+      - name : publish output data
+        id: publish
+        run: echo 'script-file={10} >> $GITHUB_OUTPUT'
       - name: upload Artifacts
         uses: actions/upload-artifact@v4
         with:
