@@ -27,7 +27,7 @@ jobs:
         run: npm run ng build
       - name : publish output data
         id: publish
-        run: echo 'output-data={10}'
+        run: echo '::set-output name=output-data::{10}'
       - name: upload Artifacts
         uses: actions/upload-artifact@v4
         with:
