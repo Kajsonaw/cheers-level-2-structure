@@ -12,6 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs: {test : 10}
     steps:
       - name: checkout repo
         uses : actions/checkout@v4
@@ -34,5 +35,12 @@ jobs:
           name: my-artifact
       - name: output list
         run: ls
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: output data
+         run:echo "${{needs.build.outputs.test}}"
+        
         
         
