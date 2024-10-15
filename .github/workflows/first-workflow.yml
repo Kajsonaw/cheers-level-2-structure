@@ -22,7 +22,7 @@ jobs:
         with: 
               node-version: 20
       - name: install dependencies
-        run: npm install
+        run: echo ${{github.ref}}
       - name: build project
         run: npm run ng build
       - name : publish output data
