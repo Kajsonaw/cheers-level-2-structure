@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs: 
-      test: ${{steps.publish.outputs.script-file}}
+      test: ${{steps.publish.outputs.output-data}}
     steps:
       - name: checkout repo
         uses : actions/checkout@v4
@@ -27,7 +27,7 @@ jobs:
         run: npm run ng build
       - name : publish output data
         id: publish
-        run: echo 'script-file={10} >> $GITHUB_OUTPUT'
+        run: echo 'output-data=10'
       - name: upload Artifacts
         uses: actions/upload-artifact@v4
         with:
