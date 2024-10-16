@@ -33,7 +33,7 @@ jobs:
             echo $GITHUB_REF
       - name: build project
         run: npm run ng build
-      - name : publish output data
+      - name : publish output data 1
         id: publish
         run: echo 'output-data=10' >> $GITHUB_OUTPUT
       - name: upload Artifacts
