@@ -21,6 +21,12 @@ jobs:
         uses: actions/setup-node@v3
         with: 
               node-version: 20
+      - name: cache dependencies
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm/caches
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
       - name: install dependencies
         run: |
             npm ci
@@ -47,6 +53,7 @@ jobs:
     steps:
       - name: output data
         run: echo "${{needs.build.outputs.test-data }}"
+     
         
         
         
