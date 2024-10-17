@@ -2,6 +2,10 @@ name: matrix demo
 on: push
 jobs:
   Build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node-version:  [14, 16, 18]
     runs-on: ubuntu-latest
     steps:
     - name: Get code
