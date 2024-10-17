@@ -46,6 +46,13 @@ jobs:
     uses: ./.github/workflows/reusable-workflow.yml
     with:
       artifact-name: my-artifact
+
+  print-deploy:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps: 
+      - name: show output of reusable workflow
+        run: echo ${{needs.deploy.outputs.result}}
     
   Report:
     needs: [build, deploy]
