@@ -11,9 +11,13 @@ on:
       some_secret:
         required: false
     outputs:
-      outcome: {value: 10}
+      result: 
+       description: result of reusable workflow
+       value: ${{jobs.deploy.outputs.outcome}}
 jobs:
   deploy:
+    outputs:
+      outcome: ${{steps.set-output.outputs.step-output}}
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -26,3 +30,6 @@ jobs:
           name: ${{inputs.artifact-name}}
       - name: list files
         run: ls
+      - name: set output data
+        id: set-output
+        run: echo "step-output=sucess" >> $GITHUB_OUTPUT
