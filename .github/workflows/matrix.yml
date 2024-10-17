@@ -6,6 +6,9 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         node-version:  [14, 16, 18]
+        include:
+         - node-version: 20
+           os: mac-latest
     runs-on: ubuntu-latest
     steps:
     - name: Get code
