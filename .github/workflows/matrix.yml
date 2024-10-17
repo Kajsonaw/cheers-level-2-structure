@@ -9,6 +9,9 @@ jobs:
         include:
          - node-version: 20
            os: mac-latest
+        exclude:
+          - node-version: 18
+            os: windows-latest
     runs-on: ubuntu-latest
     steps:
     - name: Get code
