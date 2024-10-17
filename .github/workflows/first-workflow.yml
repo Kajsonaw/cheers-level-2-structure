@@ -46,9 +46,6 @@ jobs:
     uses: ./.github/workflows/reusable-workflow.yml
     with:
       artifact-name: my-artifact
-  print-deploy:
-    needs: deploy
-    
     
   Report:
     needs: [build, deploy]
