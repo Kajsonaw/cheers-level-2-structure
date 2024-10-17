@@ -32,7 +32,7 @@ jobs:
             npm ci
             echo $GITHUB_REF
       - name: build project
-        run:  run ng build
+        run: npm run ng build
       - name : publish output data 1
         id: publish
         run: echo 'output-data=10' >> $GITHUB_OUTPUT
@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: output data
-        run: echo "${{needs.build.outputs.test-data }}"
+        run: echo "${{needs.build.outputs.test-data1 }}"
   Report:
     if: failure()
     runs-on: ubuntu-latest
