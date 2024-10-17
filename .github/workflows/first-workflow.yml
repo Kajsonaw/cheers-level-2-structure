@@ -56,6 +56,7 @@ jobs:
          echo "${{needs.build.outputs.test-data }}"
          npm lint
   Report:
+    needs: [build, deploy]
     if: failure()
     runs-on: ubuntu-latest
     steps:
