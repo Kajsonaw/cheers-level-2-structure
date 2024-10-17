@@ -7,6 +7,11 @@ on:
         required: true
         default: test
         type: string
+    secrets:
+      some_secret:
+        required: true
+    outputs:
+      outcome: {value: 10}
 jobs:
   deploy:
     runs-on: ubuntu-latest
