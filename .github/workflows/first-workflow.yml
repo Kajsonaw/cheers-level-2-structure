@@ -19,7 +19,7 @@ jobs:
       - name: install node.js
         uses: actions/setup-node@v4
         with: 
-              node-version: 20
+              node-version: 18
       - name: cache dependencies
         id: cache
         uses: actions/cache@v4
