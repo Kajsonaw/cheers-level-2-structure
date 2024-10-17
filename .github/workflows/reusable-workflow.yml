@@ -11,6 +11,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Get code
+        uses: actions/checkout@v4
       - name: deploy project
         run: echo "Deploying project"
       - name: download artifacts
