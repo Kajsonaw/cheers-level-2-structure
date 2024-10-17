@@ -49,7 +49,7 @@ jobs:
         run: ls
   deploy:
     needs: build
-    uses: ./.github/workflows/reusable.yml
+    uses: ./.github/workflows/reusable-workflow.yml
     
   Report:
     needs: [build, deploy]
