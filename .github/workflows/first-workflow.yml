@@ -52,7 +52,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: output data
-        run: echo "${{needs.build.outputs.test-data1 }}"
+        run: |
+         echo "${{needs.build.outputs.test-data }}"
+         npm lint
   Report:
     if: failure()
     runs-on: ubuntu-latest
