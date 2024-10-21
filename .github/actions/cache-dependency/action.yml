@@ -27,4 +27,5 @@ runs:
       shell: bash
     - name: output
       run: echo ${{inputs.isCaching}}
+      shell: bash
 
