@@ -1,5 +1,14 @@
 name: 'get and store cache dependencies'
 description: 'will help you get and store cache dependencies'
+inputs:
+  isCaching:
+    description: 'testing'
+    required: true
+    default: false
+outputs:
+  result:
+    description: 'cached or not'
+    value: ${{steps.cache-output.outputs.cache}}
 runs:
   using: 'Composite'
   steps:
@@ -10,7 +19,10 @@ runs:
         path: node_modules
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
     - name: install dependencies
+      id: cache-output
       if: steps.cache.outputs.cache-hit != 'true'
-      run: npm ci
+      run: | 
+        npm ci
+        echo "cache='${{inputs.isCaching}}'" >> $GITHUB_OUTPUT
       shell: bash
 
