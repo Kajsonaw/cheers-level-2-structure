@@ -1,5 +1,5 @@
-Name: 'get and store cache dependencies'
-Description: 'will help you get and store cache dependencies'
+name: 'get and store cache dependencies'
+description: 'will help you get and store cache dependencies'
 runs:
   using: 'Composite'
   steps:
