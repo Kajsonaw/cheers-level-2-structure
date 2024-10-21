@@ -17,7 +17,7 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v4
       - name: load dependencies
-        uses: ./.github/actions/cache-dependency/action.yml
+        uses: ./.github/actions/cache-dependency
       - name: build project
         run: npm run ng build
       - name : publish output data 1
