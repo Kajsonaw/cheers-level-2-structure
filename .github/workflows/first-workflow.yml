@@ -20,7 +20,7 @@ jobs:
         id: cache-deps
         uses: ./.github/actions/cache-dependency
         with:
-          caching: true
+          isCaching: true
       - name: build project
         run: npm run ng build
       - name : publish output data 1
