@@ -15,22 +15,9 @@ jobs:
       test-data: ${{steps.publish.outputs.output-data}}
     steps:
       - name: checkout repo
-        uses : actions/checkout@v4
-      - name: install node.js
-        uses: actions/setup-node@v4
-        with: 
-              node-version: 18
-      - name: cache dependencies
-        id: cache
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-      - name: install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: |
-            npm ci
-            echo $GITHUB_REF
+        uses: actions/checkout@v4
+      - name: load dependencies
+        uses: ./.github/actions/cache-dependency/action.yml
       - name: build project
         run: npm run ng build
       - name : publish output data 1
