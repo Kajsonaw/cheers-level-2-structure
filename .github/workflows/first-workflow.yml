@@ -17,12 +17,17 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v4
       - name: load dependencies
+        id: cache-deps
         uses: ./.github/actions/cache-dependency
+        with:
+          caching: true
       - name: build project
         run: npm run ng build
       - name : publish output data 1
         id: publish
-        run: echo 'output-data=10' >> $GITHUB_OUTPUT
+        run: |
+          echo 'output-data=10' >> $GITHUB_OUTPUT
+          echo ${{steps.cache-deps.outputs.result}}
       - name: upload Artifacts
         uses: actions/upload-artifact@v4
         with:
