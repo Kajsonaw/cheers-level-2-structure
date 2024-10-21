@@ -25,4 +25,6 @@ runs:
         npm ci
         echo "cache='${{inputs.isCaching}}'" >> $GITHUB_OUTPUT
       shell: bash
+    - name: output
+      run: echo ${{inputs.isCaching}}
 
