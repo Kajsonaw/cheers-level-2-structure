@@ -1,1 +1,5 @@
-
+name: 'deploy to azure server'
+description: 'deploying code to azure server using javascript actions'
+runs:
+  using: 'node16'
+  
